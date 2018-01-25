@@ -1,0 +1,40 @@
+<!--
+  Generated template for the SurgeriesListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+        <ion-title small>Surgeries</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <ion-list>
+    <div *ngFor="let sgi of surgeries;   let i = index;">
+      <page-surgeries-detail [s]=sgi [idx]=i></page-pulse-detail>
+    </div>
+    </ion-list> -->
+    <ion-list>
+      <ion-item-sliding *ngFor="let c of surgeries">
+        <button ion-item (click)="openItem(c)">
+          <ion-avatar item-start>
+        <img src="assets/img/speakers/duck.jpg">
+          </ion-avatar>
+    <h2>{{c.preferenceCardName}}</h2>
+    <p>Patient: {{c.initials}}</p>
+          <ion-note item-end *ngIf="c.surgeryTime">{{c.surgeryTime}}</ion-note>
+        </button>
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(item)">
+            {{ 'DELETE_BUTTON' | translate }}
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

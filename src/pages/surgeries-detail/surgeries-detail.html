@@ -1,0 +1,135 @@
+<ion-card #cardItem>
+  <div>
+    <img src="assets/img/rooms/s{{idx+1}}.PNG" />
+    <!-- <div class="card-title">{{s.initials | uppercase}}</div>*ngIf="s.occurs==='today'" -->
+
+    <div class="card-subtitle">{{s.preferenceCardName}}</div>
+  </div>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item border lines>
+        <ion-avatar item-left>
+          <letter-avatar [avatardata]="avatar" [avatarText]="s.initials"></letter-avatar>
+        </ion-avatar>
+
+        <!--   <p style="white-space: pre-wrap">   <strong>Patient:</strong> {{s.initials | uppercase}}</p>
+                 [hidden]="(s.occurs==='today')" <p style="white-space: pre-wrap">
+                    <strong>Patient:</strong> {{s.initials | uppercase}}</p>
+
+                <p style="white-space: pre-wrap">
+                    <strong>Surgery:</strong> {{s.patient | uppercase}}</p>
+                <p style="white-space: pre-wrap">
+                     <strong>Card:</strong> {{s.preferenceCardName}}</p> -->
+
+
+
+        <p>
+          <strong>Status:</strong> {{s.admissionStatus}}</p>
+        <p>
+          <strong>Duration:</strong> {{s.surgeryTime}}</p>
+        <p class="text ion-item-divider-cancelled" color="google" *ngIf="s.cancelled">
+          <ion-icon name="close-circle" item-left small></ion-icon>
+          <strong>Cancelled</strong>
+        </p>
+        <p class="text ion-item-divider-billing" color="favorite" *ngIf="s.completed">
+          <ion-icon name="cash" item-left small></ion-icon>
+          <strong>Billed</strong>
+        </p>
+
+        <!-- <ion-note item-right>
+                    <i>
+                        <strong>From </strong> {{ s.term | amUtc | amDateFormat: 'h:mm a'}}
+                        <br/>
+                        <strong>To</strong> {{ s.term | amUtc | amAdd: s.minutes : 'minutes' | amDateFormat: 'h:mm a'}} </i>
+                </ion-note> -->
+      </ion-item>
+      <ion-item-options side="left" *ngIf="(!s.cancelled && !s.completed && !s.occurs=='futute')">
+        <button ion-button color='favorite' (click)="sendBilling(s,cardItem)">
+          <ion-icon name="cash" item-left small></ion-icon>
+          Billing
+        </button>
+        <button ion-button color="google" (click)="cancelSurgery(s,cardItem)">
+          <ion-icon name="close-circle" item-left small></ion-icon>
+          Cancel
+        </button>
+      </ion-item-options>
+
+
+      <ion-item-options side="right" *ngIf="(!s.cancelled && !s.completed)">
+        <button ion-button color="primary" (click)="showEditCodes(s,'CPT')">
+          <ion-icon name="barcode"></ion-icon>
+          CPT
+        </button>
+        <button ion-button color="facebook" (click)="showEditCodes(s,'DX')">
+          <ion-icon name="barcode"></ion-icon>
+          DX
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item-divider color="light" small>Actions</ion-item-divider>
+      <button ion-item (click)="showEditCodes(s,'CPT')" [disabled]="(s.cancelled || s.completed)">
+        <ion-icon name="barcode" item-left small color="primary"></ion-icon>
+        <h2>CPT Codes</h2>
+        <p class="text code-info">{{s.cpt}}</p>
+        <ion-note item-right>{{s.cptArray?.length}} codes</ion-note>
+      </button>
+      <button ion-item (click)="showEditCodes(s,'DX')" [disabled]="(s.cancelled || s.completed)">
+        <ion-icon name="barcode" item-left small color="facebook"></ion-icon>
+        <h2>DX Codes</h2>
+        <p class="text code-info">{{s.diagnosisCode}}</p>
+        <ion-note item-right>{{s.dxArray?.length}} codes</ion-note>
+      </button>
+
+
+
+
+      <!--BILLING BUTTON-->
+      <ion-item-sliding *ngIf="(!s.cancelled && !s.completed && s.occurs!=='future')">
+        <button ion-item clear item-left (click)="sendBilling(s,cardItem)" class="ion-item-divider-billing">
+          <ion-icon name="cash" item-left small color="favorite"></ion-icon>
+          <h2>Billing</h2>
+          <p>Send billing information to coordinator</p>
+          <ion-note item-right>{{s.billingCoordinatorName}}</ion-note>
+          <ion-icon name="more" item-right small color="facebook"></ion-icon>
+        </button>
+
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="openContact(s.billingCoordinatorName,s.billingCoordinatorEmail,s.billingCoordinatorPhone)">
+            <ion-icon name="mail"></ion-icon>
+          </button>
+          <button ion-button color="light" (click)="openContact(s.billingCoordinatorName,s.billingCoordinatorEmail,s.billingCoordinatorPhone)">
+            <ion-icon name="call"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+
+
+
+      <!--CANCEL BUTTON-->
+      <ion-item-sliding *ngIf="(!s.cancelled && !s.completed)">
+        <button ion-item clear item-left (click)="cancelSurgery(s,cardItem)" class="ion-item-divider-cancelled">
+          <ion-icon name="close-circle" item-left small color="danger"></ion-icon>
+          <h2>Cancel</h2>
+          <p>Cancel surgery.</p>
+          <ion-note item-right>{{s.coordinatorName}} </ion-note>
+          <ion-icon name="more" item-right small color="facebook"></ion-icon>
+        </button>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="openContact(s.coordinatorName,s.coordinatorEmail,s.coordinatorPhone)">
+            <ion-icon name="mail"></ion-icon>
+          </button>
+          <button ion-button color="light" (click)="openContact(s.coordinatorName,s.coordinatorEmail,s.coordinatorPhone)">
+            <ion-icon name="call"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
