@@ -14,12 +14,12 @@
 
 <ion-content padding>
 
-  <!-- <ion-list>
+  <ion-list>
     <div *ngFor="let sgi of surgeries;   let i = index;">
-      <page-surgeries-detail [s]=sgi [idx]=i></page-pulse-detail>
+      <page-surgeries-detail [surgery]=sgi [idx]=i></page-surgeries-detail>
     </div>
-    </ion-list> -->
-    <ion-list>
+    </ion-list>
+    <!-- <ion-list>
       <ion-item-sliding *ngFor="let c of surgeries">
         <button ion-item (click)="openItem(c)">
           <ion-avatar item-start>
@@ -35,6 +35,6 @@
           </button>
         </ion-item-options>
       </ion-item-sliding>
-    </ion-list>
+    </ion-list> -->
 
 </ion-content>

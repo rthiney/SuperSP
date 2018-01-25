@@ -1,13 +1,15 @@
- 
-
 import { Component, ElementRef, Input, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'letter-avatar',
-  templateUrl: 'letter-avatar.html',
+  selector: "avatar",
+  template: `
+            <div *ngIf="props" [style.background-color]="props.background" [style.width] = "props.size" [style.line-height]='props.lineheight' [style.height] = 'props.size' [style.font-size] = 'props.fontSize' [style.border] = 'props.border' [style.border-radius] = 'props.borderradius' [style.text-align] ="props.textalign"> 
+            <div [style.color]='fontColor'>{{props.letter}}</div>
+            </div>
+            `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LetterAvatarComponent implements OnInit, OnChanges {
+export class LetterAvatarDirective implements OnInit, OnChanges {
   @Input("avatardata") avatarData: any;
   @Input("avatarText") avatarText: any;
 

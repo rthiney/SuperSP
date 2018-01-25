@@ -1,21 +1,8 @@
  {
-"name":"SuperSP",
+"name":"supersp",
 "app_id":"0536e026",
 "type":"ionic-angular",
 "integrations": {
 "cordova": {}
-},
-"apiUrl":"https://surgipaldata.azurewebsites.net/api/",
-"apiPhp":"https: //surgipal.com/api/api.php/",
-"server":"https: //surgipal.com/",
-"Auth0Vars": {
-"AUTH0_CLIENT_ID":"AX6mKLHYp6GVtEcOe5RSmyggmZkiXyQH",
-"AUTH0_SECRET":"WR21k3S2RcPPD6GIPrpgHbpCmzi4YPPgKUxL2kiqeFpOke_2TjSjNmoukVioucaf",
-"AUTH0_DOMAIN":"surgipal.auth0.com",
-"AUTH0_CALLBACK_URL":"location.href"
-},
-"SendGridVars ": {
-"key ":"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",
-"billingTemplate ":"661d5e3f-113c-4ee1-8b93-76b5ac74523b"
 }
 }

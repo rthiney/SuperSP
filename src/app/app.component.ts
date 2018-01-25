@@ -19,6 +19,7 @@ pages:any[] = [ {title:'Tutorial', component:'TutorialPage'},  {title:'Welcome',
 ]
 
   constructor(private translate:TranslateService, platform:Platform, settings:Settings, private config:Config, private statusBar:StatusBar, private splashScreen:SplashScreen) {
+ 
 platform.ready().then(() =>  {
 // Okay, so the platform is ready and our plugins are available.
 // Here you can do any higher level native things you might need.
@@ -29,8 +30,9 @@ this.initTranslate();
 }
 
 initTranslate() {
+
 // Set the default language for translation strings, and the current language.
-this.translate.setDefaultLang('fr');
+this.translate.setDefaultLang('en');
 const browserLang = this.translate.getBrowserLang();
 
 if (browserLang) {
@@ -43,11 +45,10 @@ this.translate.use('zh-cmn-Hans');
 this.translate.use('zh-cmn-Hant');
 }
 }else {
-// this.translate.use(this.translate.getBrowserLang());
-this.translate.use('fr');
+this.translate.use(this.translate.getBrowserLang());
 }
 }else {
-this.translate.use('fr'); // Set your language here
+this.translate.use('en'); // Set your language here
 }
 
 this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values =>  {

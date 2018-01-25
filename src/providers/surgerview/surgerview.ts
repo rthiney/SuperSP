@@ -2,10 +2,10 @@ import {Injectable }from '@angular/core';
 import {HttpClient }from '@angular/common/http';
 import {Observable }from 'rxjs/Observable';
 import {map, catchError}from 'rxjs/operators';
-// import {CONFIGURATION }from '../constants';
+  import {CONFIGURATION }from '../constants';
 import 'rxjs/add/operator/map';
 import {ISurgeriesView, SurgeriesView }from '../../models/surgeriesview';
-import {ENV }from '@environment';
+
 /*
   Generated class for the SurgerviewProvider provider.
 
@@ -17,7 +17,7 @@ data:SurgeriesView[];
 private apiUrl:string;
 constructor(public http:HttpClient ) {
 
-this.apiUrl = ENV.baseUrls.apiPhp + 'surgeriesview?transform=1&?filter[]=doctorFosId,eq,12&filter[]=completed,eq,1&order=term,desc&satisfy=all';
+this.apiUrl = CONFIGURATION.baseUrls.apiPhp + 'surgeriesview?transform=1&?filter[]=doctorFosId,eq,12&filter[]=completed,eq,1&order=term,desc&satisfy=all';
 console.log('Hello SurgerviewProvider Provider:' + this.apiUrl);
 }
 

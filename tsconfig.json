@@ -24,13 +24,7 @@
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false
-  },
-    "paths": {
-      "@environment": [
-        "config/config.dev"
-]
-}
-
+  }
 }
 
 
