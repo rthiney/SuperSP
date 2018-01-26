@@ -17,7 +17,7 @@ data:SurgeriesView[];
 private apiUrl:string;
 constructor(public http:HttpClient ) {
 
-this.apiUrl = CONFIGURATION.baseUrls.apiPhp + 'surgeriesview?transform=1&?filter[]=doctorFosId,eq,12&filter[]=completed,eq,1&order=term,desc&satisfy=all';
+  this.apiUrl = CONFIGURATION.baseUrls.apiPhp + 'surgeriesview?transform=1&?filter[]=doctorFosId,eq,12&filter[]=completed,eq,1&order=term,desc&satisfy=all&page=1';
 console.log('Hello SurgerviewProvider Provider:' + this.apiUrl);
 }
 

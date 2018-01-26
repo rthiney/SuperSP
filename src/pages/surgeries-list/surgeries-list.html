@@ -16,7 +16,7 @@
 
   <ion-list>
     <div *ngFor="let sgi of surgeries;   let i = index;">
-      <page-surgeries-detail [surgery]=sgi [idx]=i></page-surgeries-detail>
+      <page-surgeries-detail [surgery]=sgi [idx]=i%5></page-surgeries-detail>
     </div>
     </ion-list>
     <!-- <ion-list>
