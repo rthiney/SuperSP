@@ -1,7 +1,7 @@
 import {Component }from '@angular/core';
 import {IonicPage, NavController, NavParams, ModalController }from 'ionic-angular';
 import {SurgerviewProvider }from '../../providers/surgerview/surgerview';
-import {ISurgeriesView, SurgeriesView }from '../../models/surgeriesview';
+import {SurgeriesView }from '../../models/surgeriesview';
 
 /**
  * Generated class for the SurgeriesListPage page.

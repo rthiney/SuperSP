@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output }from '@angular/core';
 import {IonicPage, NavController, NavParams }from 'ionic-angular';
 import {SurgeriesView }from '../../models/surgeriesview';
-import {LetterAvatarDirective }from '../../directives/letter-avatar-directive';
 /**
  * Generated class for the SurgeriesDetailPage page.
  *
