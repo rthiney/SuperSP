@@ -21,12 +21,15 @@ constructor(public navCtrl:NavController, public navParams:NavParams, public mod
 
 ionViewDidLoad() {
 this.getSurgeries();
+
 }
 
 getSurgeries() {
 this.surgeriewSvc.getSurgeries()
 .subscribe(
-countries => this.surgeries = countries,
+countries =>  {
+this.surgeries = countries
+},
 error => this.errorMessage =  < any > error)
 }
 

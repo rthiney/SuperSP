@@ -14,7 +14,8 @@ import {Settings }from '../providers/providers';
 import {User }from '../providers/providers';
 import {Api }from '../providers/providers';
 import {MyApp }from './app.component';
-import {SurgerviewProvider }from '../providers/surgerview/surgerview'; 
+
+import {SurgerviewProvider }from '../providers/surgerview/surgerview';
 const IonicPro = Pro.init('0536e026',  {
 appVersion:"0.0.1"
 });
