@@ -1,7 +1,7 @@
 import {Injectable }from '@angular/core';
 import {HttpClient }from '@angular/common/http';
 import {Observable }from 'rxjs/Observable';
-import {map, of, catchError}from 'rxjs/operators';
+import {map, catchError}from 'rxjs/operators';
 import {CONFIGURATION }from '../constants';
 import {SurgeriesView }from '../../models/surgeriesview';
 
@@ -21,25 +21,20 @@ console.log('Hello SurgerviewProvider Provider:' + this.apiUrl);
 }
 
 //   getSugeries() {
-//     if (this.data) {
-//       return Observable.resolve(this.data);
-//     }
 
 //     return new Promise(resolve => {
 //       this.http.get(this.apiUrl + '/users')
 //         .map(res => res.json())
 //         .subscribe(data => {
 //           this.data = data;
-//           resolve(this.data);
-//         });
-//     });
+//           resolve(this. 
 // }
 
 getSurgeries():Observable < SurgeriesView[] >  {
 if (this.data)
 return Observable.of(this.data);
 
-return this.http.get(this.apiUrl).pipe(
+return         this.http.get(this.apiUrl).pipe(
 map(this.extractData),
 catchError(this.handleError));
 }
@@ -53,11 +48,12 @@ private handleError(error:Response | any) {
 let errMsg:string;
 if (error instanceof Response) {
 const err = error || '';
-errMsg = `$ {error.status} - $ {error.statusText || ''}$ {err}`;
+errMsg = `${error.status} - ${error.statusText || '' }${err}`;
 }else {
 errMsg = error.message?error.message:error.toString();
 }
 console.error(errMsg);
 return Observable.throw(errMsg);
+
 }
 }
