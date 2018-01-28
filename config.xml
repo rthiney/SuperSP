@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.surgipal.mobile" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.surgipal.mobile" version="0.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>SuperSP</name>
     <description>A physician driven cloud-based preference card system and OR platform for surgeries and procedures.</description>
     <author email="raphael@surgipal.com" href="http://surgipal.com">Raphael Thiney</author>
